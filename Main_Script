@@ -1,0 +1,47 @@
+%%
+%012358411 - Problem 5 Part B
+%Lam, Richard 
+
+clear; clc; close all; % Clears the workspace and command window.
+%%
+A = [-1,0; 1,-2];
+B = [1 ; 1];
+C = [1,0; 0,1];
+D = [0;0];
+IC = [0 ; 1];
+
+t = (0:0.1:10);
+x1t = 1-exp(-t);
+x2t = 1-exp(-t)+exp(-2*t);
+
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Call Simulink Block Diagram%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+open_system('P5.slx')
+ansSTEP = sim('P5.slx');
+
+%%
+%%%%%%%%%%%%%%%%%%%%%
+%Plot Control System%
+%%%%%%%%%%%%%%%%%%%%%
+hold all;% This is so each plot is actually gets plotted instead of overriding each other. 
+
+figure (1);
+plot(t,x1t,'k');
+hold on
+plot(ansSTEP.X1t(:,1),ansSTEP.X1t(:,2));
+title('X1t Response');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('Analytical', 'Simulink');
+
+hold on;
+figure (2);
+plot(t,x2t,'k');
+hold on
+plot(ansSTEP.X2t(:,1),ansSTEP.X2t(:,2));
+title('X2t Reponse');
+xlabel('Time (s)');
+ylabel('Amplitude');
+legend('Analytical', 'Simulink');
