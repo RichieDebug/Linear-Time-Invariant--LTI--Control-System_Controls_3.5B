@@ -1,0 +1,2 @@
+# Linear-Time-Invariant--LTI--Control-System_Controls_3.5B
+Write a MATLAB-Simulink program to simulate the responses  of states 𝑥1 (𝑡) and 𝑥2 (𝑡) of system (2) with the initial conditions:  𝑥1 (0) 𝑥2 (0) =  0 1  and the  input signal 𝑢(𝑡) is a unit step function. Compare the analytical vs. computational  solutions of the responses of states 𝑥1 (𝑡) and 𝑥2 (𝑡) by plotting them together. Please  remember to label the axes and title the plots. 
